@@ -1,8 +1,11 @@
 let sentences = [];
+let currentLanguage = 'en';
 let idx = 0;
 let answer = [];
 let shuffled = [];
 
+const languageSelectionDiv = document.getElementById('language-selection');
+const gameContainerDiv = document.getElementById('game-container');
 const sentenceDiv = document.getElementById('sentence');
 const wordsDiv = document.getElementById('words');
 const resultDiv = document.getElementById('result');
@@ -14,11 +17,64 @@ function shuffle(arr) {
             .map(i => i[1]);
 }
 
-async function loadSentences(lang = 'en') {
-  const res = await fetch(`${lang}.json`);
-  sentences = await res.json();
+// Проверка сохраненного языка при загрузке
+function checkSavedLanguage() {
+  const savedLanguage = localStorage.getItem('userLanguage');
+  if (savedLanguage) {
+    // Если язык уже выбран - сразу загружаем игру
+    currentLanguage = savedLanguage;
+    languageSelectionDiv.style.display = 'none';
+    gameContainerDiv.style.display = 'block';
+    loadSentences(currentLanguage);
+  } else {
+    // Показываем экран выбора языка
+    languageSelectionDiv.style.display = 'block';
+    gameContainerDiv.style.display = 'none';
+  }
+}
+
+// Выбор языка (вызывается один раз)
+function selectLanguage(lang) {
+  currentLanguage = lang;
+  // Сохраняем выбор в localStorage
+  localStorage.setItem('userLanguage', lang);
+  
+  // Переключаемся на игровой экран
+  languageSelectionDiv.style.display = 'none';
+  gameContainerDiv.style.display = 'block';
+  
+  // Загружаем игру
+  loadSentences(lang);
+}
+
+// Смена языка (для кнопки в игре)
+function changeLanguage() {
+  // Очищаем сохраненный язык
+  localStorage.removeItem('userLanguage');
+  
+  // Возвращаемся к выбору языка
+  gameContainerDiv.style.display = 'none';
+  languageSelectionDiv.style.display = 'block';
+  
+  // Сбрасываем состояние игры
   idx = 0;
-  renderSentence();
+  answer = [];
+  shuffled = [];
+}
+
+async function loadSentences(lang = 'en') {
+  try {
+    const res = await fetch(`${lang}.json`);
+    sentences = await res.json();
+    idx = 0;
+    renderSentence();
+  } catch (error) {
+    console.error('Ошибка загрузки предложений:', error);
+    // Fallback на английский если файл не найден
+    if (lang !== 'en') {
+      loadSentences('en');
+    }
+  }
 }
 
 function renderSentence() {
@@ -72,5 +128,5 @@ nextBtn.onclick = () => {
   }
 };
 
-// Загрузка при старте:
-loadSentences();
+// Запуск при загрузке страницы
+checkSavedLanguage();
