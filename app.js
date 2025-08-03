@@ -1,15 +1,8 @@
-// app.js
-const sentences = [
-  "I like to play football",
-  "This is my favorite book",
-  "She lives in London",
-  "Can you help me?",
-  "The weather is very nice today"
-];
-
+let sentences = [];
 let idx = 0;
 let answer = [];
 let shuffled = [];
+
 const sentenceDiv = document.getElementById('sentence');
 const wordsDiv = document.getElementById('words');
 const resultDiv = document.getElementById('result');
@@ -17,8 +10,15 @@ const nextBtn = document.getElementById('next-btn');
 
 function shuffle(arr) {
   return arr.map(v => [Math.random(), v])
-            .sort((a,b) => a[0]-b[0])
+            .sort((a, b) => a[0] - b[0])
             .map(i => i[1]);
+}
+
+async function loadSentences(lang = 'en') {
+  const res = await fetch(`${lang}.json`);
+  sentences = await res.json();
+  idx = 0;
+  renderSentence();
 }
 
 function renderSentence() {
@@ -27,7 +27,7 @@ function renderSentence() {
   nextBtn.style.display = 'none';
 
   const sentence = sentences[idx];
-  sentenceDiv.textContent = `Sentence #${idx+1}`;
+  sentenceDiv.textContent = `Sentence #${idx + 1}`;
   shuffled = shuffle(sentence.split(' '));
 
   wordsDiv.innerHTML = '';
@@ -72,4 +72,5 @@ nextBtn.onclick = () => {
   }
 };
 
-renderSentence();
+// Загрузка при старте:
+loadSentences();
