@@ -1,0 +1,28 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Telegram Sentence Puzzle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body { font-family: sans-serif; background: #f7f7f7; margin: 0; padding: 20px; }
+    .sentence { margin: 24px 0 12px; font-size: 1.2em; }
+    .words { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+    .word-btn { padding: 10px 20px; border: none; border-radius: 6px; background: #2AABEE; color: #fff; font-size: 1em; cursor: pointer; }
+    .selected { background: #cccccc; color: #222; }
+    #next-btn { margin-top: 15px; padding: 12px 25px; font-size: 1em; }
+    .fail { color: #e01d1d; margin-top: 10px; }
+    .success { color: #128c7e; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h2>Assemble the sentence</h2>
+  <div class="sentence" id="sentence"></div>
+  <div class="words" id="words"></div>
+  <div id="result"></div>
+  <button id="next-btn" style="display:none;">Next Sentence</button>
+  <script src="app.js"></script>
+</body>
+</html>
