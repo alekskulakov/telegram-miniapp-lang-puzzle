@@ -19,10 +19,9 @@ assembledDiv.style.minHeight = '28px';
 assembledDiv.style.fontSize = '1.08em';
 wordsDiv.parentNode.insertBefore(assembledDiv, wordsDiv);
 
+// ИСПРАВЛЕННАЯ функция shuffle
 function shuffle(arr) {
-  return arr.map(v => [Math.random(), v])
-            .sort((a, b) => a - b)
-            .map(i => i);
+  return arr.sort(() => Math.random() - 0.5);
 }
 
 function checkSavedLanguage() {
@@ -84,12 +83,10 @@ function renderSentence() {
 
 function renderWords() {
   wordsDiv.innerHTML = '';
-  // Для каждой кнопки слово показываем выбрано оно или нет
   shuffled.forEach((word, i) => {
     const btn = document.createElement('button');
     btn.className = 'word-btn';
-    btn.textContent = word;
-    // Если слово уже есть в answer, кнопка отключена
+    btn.textContent = word; // теперь только слово
     btn.disabled = answer.includes(word);
     btn.onclick = () => {
       if (!answer.includes(word)) {
@@ -104,7 +101,6 @@ function renderWords() {
 }
 
 function renderAssembled() {
-  // Показываем собранное предложение с возможностью удалять слово
   assembledDiv.innerHTML = '';
   answer.forEach((word, idxAnswer) => {
     const span = document.createElement('span');
