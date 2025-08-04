@@ -1,4 +1,5 @@
 let sentences = [];
+let shuffledSentences = []; // новый массив для перемешанных предложений
 let currentLanguage = 'en';
 let idx = 0;
 let answer = [];
@@ -21,6 +22,11 @@ wordsDiv.parentNode.insertBefore(assembledDiv, wordsDiv);
 
 function shuffle(arr) {
   return arr.sort(() => Math.random() - 0.5);
+}
+
+// Новая функция для перемешивания предложений
+function shuffleSentences(arr) {
+  return [...arr].sort(() => Math.random() - 0.5);
 }
 
 function checkSavedLanguage() {
@@ -57,6 +63,10 @@ async function loadSentences(lang = 'en') {
   try {
     const res = await fetch(`${lang}.json`);
     sentences = await res.json();
+    
+    // Перемешиваем предложения при загрузке
+    shuffledSentences = shuffleSentences(sentences);
+    
     idx = 0;
     renderSentence();
   } catch (error) {
@@ -72,7 +82,8 @@ function renderSentence() {
   resultDiv.textContent = '';
   nextBtn.style.display = 'none';
 
-  const sentence = sentences[idx];
+  // Используем перемешанный массив предложений
+  const sentence = shuffledSentences[idx];
   sentenceDiv.textContent = `Sentence #${idx + 1}`;
   shuffled = shuffle(sentence.split(' '));
 
@@ -86,13 +97,11 @@ function renderWords() {
     const btn = document.createElement('button');
     btn.className = 'word-btn';
     btn.textContent = word;
-    btn.dataset.word = word; // сохраняем слово в data-атрибуте
+    btn.dataset.word = word;
     
-    // Проверяем, используется ли это слово в ответе
     const isUsed = answer.includes(word);
     btn.disabled = isUsed;
     
-    // Визуально показываем неактивную кнопку
     if (isUsed) {
       btn.style.opacity = '0.4';
       btn.style.cursor = 'not-allowed';
@@ -115,7 +124,6 @@ function renderWords() {
 }
 
 function updateButtonStates() {
-  // Обновляем состояние всех кнопок
   const buttons = wordsDiv.querySelectorAll('.word-btn');
   buttons.forEach(btn => {
     const word = btn.dataset.word;
@@ -146,7 +154,6 @@ function renderAssembled() {
     span.style.display = 'inline-block';
     span.style.transition = 'background 0.2s';
     
-    // Эффект при наведении
     span.onmouseenter = () => {
       span.style.background = '#ffeb9c';
     };
@@ -155,10 +162,9 @@ function renderAssembled() {
     };
     
     span.onclick = () => {
-      // Удаляем слово из ответа
       answer.splice(idxAnswer, 1);
       renderAssembled();
-      updateButtonStates(); // обновляем состояние кнопок
+      updateButtonStates();
       resultDiv.textContent = '';
     };
     
@@ -168,10 +174,11 @@ function renderAssembled() {
 
 function checkProgress() {
   if (answer.length === shuffled.length) {
-    if (answer.join(' ') === sentences[idx]) {
+    // Сравниваем с оригинальным предложением из перемешанного массива
+    if (answer.join(' ') === shuffledSentences[idx]) {
       resultDiv.textContent = '✅ Correct!';
       resultDiv.className = 'success';
-      nextBtn.style.display = idx < sentences.length - 1 ? 'inline-block' : 'none';
+      nextBtn.style.display = idx < shuffledSentences.length - 1 ? 'inline-block' : 'none';
     } else {
       resultDiv.textContent = '❌ Incorrect. Try again! You can correct your answer below.';
       resultDiv.className = 'fail';
@@ -183,7 +190,7 @@ function checkProgress() {
 
 nextBtn.onclick = () => {
   idx++;
-  if (idx < sentences.length) {
+  if (idx < shuffledSentences.length) {
     renderSentence();
   } else {
     sentenceDiv.textContent = "Congratulations! You've finished.";
