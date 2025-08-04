@@ -185,8 +185,8 @@
     }
     
     #next-btn { 
-      padding: 14px 28px; 
-      font-size: 1.1em;
+      padding: 12px;
+      font-size: 1.3em;
       background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
       border: none;
       border-radius: 10px;
@@ -195,7 +195,11 @@
       transition: all 0.3s ease;
       font-weight: 500;
       box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
-      min-width: 140px;
+      min-width: 50px;
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
     .game-controls {
@@ -204,11 +208,12 @@
       justify-content: center;
       margin-top: 20px;
       flex-wrap: wrap;
+      align-items: center;
     }
     
     #reset-btn {
-      padding: 14px 28px;
-      font-size: 1.1em;
+      padding: 12px;
+      font-size: 1.3em;
       background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
       border: none;
       border-radius: 10px;
@@ -217,7 +222,11 @@
       transition: all 0.3s ease;
       font-weight: 500;
       box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-      min-width: 140px;
+      min-width: 50px;
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
     #reset-btn:hover {
@@ -226,8 +235,8 @@
     }
     
     #show-answer-btn {
-      padding: 14px 28px;
-      font-size: 1.1em;
+      padding: 12px;
+      font-size: 1.3em;
       background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
       border: none;
       border-radius: 10px;
@@ -236,7 +245,11 @@
       transition: all 0.3s ease;
       font-weight: 500;
       box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
-      min-width: 140px;
+      min-width: 50px;
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
     #show-answer-btn:hover {
@@ -369,15 +382,17 @@
       <div id="result"></div>
       <div class="game-controls">
         <button id="reset-btn" onclick="resetCurrentSentence()" 
-                data-en="Reset" data-ru="Сбросить">
-          🔄 Reset
+                title="Reset / Сбросить">
+          ↻
         </button>
         <button id="show-answer-btn" onclick="showAnswer()" 
-                data-en="Show Answer" data-ru="Показать ответ">
-          👁️ Show Answer
+                title="Show Answer / Показать ответ">
+          💡
         </button>
         <button id="next-btn" style="display:none;" 
-                data-en="Next" data-ru="Следующее">Next</button>
+                title="Next / Следующее">
+          →
+        </button>
       </div>
     </div>
   </div>

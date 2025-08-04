@@ -135,8 +135,14 @@ class UIComponents {
       button.className = 'word-btn';
       button.textContent = word;
       button.dataset.word = word;
+      button.dataset.index = index;
       
-      const isUsed = usedWords.includes(word);
+      // Count how many times this word appears in original words
+      const totalCount = words.filter(w => w === word).length;
+      // Count how many times this word is already used
+      const usedCount = usedWords.filter(w => w === word).length;
+      
+      const isUsed = usedCount >= totalCount;
       button.disabled = isUsed;
       
       if (!isUsed) {
@@ -151,7 +157,13 @@ class UIComponents {
 
   showResult(isCorrect, message) {
     this.resultDisplay.textContent = message;
-    this.resultDisplay.className = isCorrect ? 'success' : 'fail';
+    
+    // Clear className when there's no message or result
+    if (isCorrect === null || message === '') {
+      this.resultDisplay.className = '';
+    } else {
+      this.resultDisplay.className = isCorrect ? 'success' : 'fail';
+    }
     
     // Show Next button only when answer is correct and not the last sentence
     if (isCorrect) {
@@ -168,8 +180,7 @@ class UIComponents {
       element.textContent = element.getAttribute(`data-${lang}`);
     });
     
-    // Update next button text
-    this.nextButton.textContent = TRANSLATIONS[lang]['next'];
+    // Next button uses icon only (➡️)
   }
 
   showGameComplete() {
@@ -201,10 +212,17 @@ class UIComponents {
 
   updateButtonStates(usedWords) {
     const buttons = this.wordsContainer.querySelectorAll('.word-btn');
+    const allWords = Array.from(buttons).map(btn => btn.dataset.word);
+    
     buttons.forEach(btn => {
       const word = btn.dataset.word;
-      const isUsed = usedWords.includes(word);
       
+      // Count how many times this word appears in original words
+      const totalCount = allWords.filter(w => w === word).length;
+      // Count how many times this word is already used
+      const usedCount = usedWords.filter(w => w === word).length;
+      
+      const isUsed = usedCount >= totalCount;
       btn.disabled = isUsed;
       btn.style.opacity = isUsed ? '0.4' : '1';
       btn.style.cursor = isUsed ? 'not-allowed' : 'pointer';
@@ -373,13 +391,18 @@ class GameController {
     const correctSentence = this.state.getCurrentSentence();
     if (!correctSentence) return;
 
-    // Show the correct answer
-    const lang = this.state.currentLanguage;
-    const answerText = TRANSLATIONS[lang]['show_answer'] || 'Show Answer';
+    // Check if answer is already shown (toggle functionality)
+    const isAnswerShown = this.ui.resultDisplay.textContent.includes(`"${correctSentence}"`);
     
-    // Show result without affecting Next button visibility
-    this.ui.resultDisplay.textContent = `📖 ${answerText}: "${correctSentence}"`;
-    this.ui.resultDisplay.className = 'info';
+    if (isAnswerShown) {
+      // Hide the answer
+      this.ui.resultDisplay.textContent = '';
+      this.ui.resultDisplay.className = '';
+    } else {
+      // Show the correct answer
+      this.ui.resultDisplay.textContent = `💡 "${correctSentence}"`;
+      this.ui.resultDisplay.className = 'info';
+    }
     
     // Play sound if enabled
     if (this.soundManager) {
