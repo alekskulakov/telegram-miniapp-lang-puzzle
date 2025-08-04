@@ -19,7 +19,6 @@ assembledDiv.style.minHeight = '28px';
 assembledDiv.style.fontSize = '1.08em';
 wordsDiv.parentNode.insertBefore(assembledDiv, wordsDiv);
 
-// ИСПРАВЛЕННАЯ функция shuffle
 function shuffle(arr) {
   return arr.sort(() => Math.random() - 0.5);
 }
@@ -86,17 +85,50 @@ function renderWords() {
   shuffled.forEach((word, i) => {
     const btn = document.createElement('button');
     btn.className = 'word-btn';
-    btn.textContent = word; // теперь только слово
-    btn.disabled = answer.includes(word);
+    btn.textContent = word;
+    btn.dataset.word = word; // сохраняем слово в data-атрибуте
+    
+    // Проверяем, используется ли это слово в ответе
+    const isUsed = answer.includes(word);
+    btn.disabled = isUsed;
+    
+    // Визуально показываем неактивную кнопку
+    if (isUsed) {
+      btn.style.opacity = '0.4';
+      btn.style.cursor = 'not-allowed';
+    } else {
+      btn.style.opacity = '1';
+      btn.style.cursor = 'pointer';
+    }
+    
     btn.onclick = () => {
-      if (!answer.includes(word)) {
+      if (!btn.disabled) {
         answer.push(word);
         renderAssembled();
-        renderWords();
+        updateButtonStates();
         checkProgress();
       }
     };
+    
     wordsDiv.appendChild(btn);
+  });
+}
+
+function updateButtonStates() {
+  // Обновляем состояние всех кнопок
+  const buttons = wordsDiv.querySelectorAll('.word-btn');
+  buttons.forEach(btn => {
+    const word = btn.dataset.word;
+    const isUsed = answer.includes(word);
+    
+    btn.disabled = isUsed;
+    if (isUsed) {
+      btn.style.opacity = '0.4';
+      btn.style.cursor = 'not-allowed';
+    } else {
+      btn.style.opacity = '1';
+      btn.style.cursor = 'pointer';
+    }
   });
 }
 
@@ -112,12 +144,24 @@ function renderAssembled() {
     span.style.borderRadius = '6px';
     span.style.border = '1px solid #e1c866';
     span.style.display = 'inline-block';
+    span.style.transition = 'background 0.2s';
+    
+    // Эффект при наведении
+    span.onmouseenter = () => {
+      span.style.background = '#ffeb9c';
+    };
+    span.onmouseleave = () => {
+      span.style.background = '#fff6be';
+    };
+    
     span.onclick = () => {
+      // Удаляем слово из ответа
       answer.splice(idxAnswer, 1);
       renderAssembled();
-      renderWords();
+      updateButtonStates(); // обновляем состояние кнопок
       resultDiv.textContent = '';
     };
+    
     assembledDiv.appendChild(span);
   });
 }
