@@ -91,9 +91,15 @@
       font-weight: 600;
     }
     
+    .header-controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
     .language-switch {
-      padding: 8px 16px;
-      font-size: 0.9em;
+      padding: 8px 12px;
+      font-size: 1.2em;
       border: 2px solid #2AABEE;
       background: transparent;
       color: #2AABEE;
@@ -101,11 +107,14 @@
       cursor: pointer;
       transition: all 0.3s ease;
       font-weight: 500;
+      min-width: 40px;
+      text-align: center;
     }
     
     .language-switch:hover {
       background: #2AABEE;
       color: white;
+      transform: scale(1.1);
     }
     
     .sound-toggle-btn {
@@ -299,6 +308,10 @@
         text-align: center;
       }
       
+      .header-controls {
+        justify-content: center;
+      }
+      
       .words {
         gap: 8px;
       }
@@ -343,13 +356,14 @@
     <div id="game-container" class="game-container">
       <div class="game-header">
         <h2 data-en="Make the sentence" data-ru="Составьте предложение">Make the sentence</h2>
-              <button class="language-switch" onclick="changeLanguage()" 
-              data-en="Switch Language" data-ru="Сменить язык">
-        Switch Language
-      </button>
-      <button class="sound-toggle-btn" onclick="toggleSound()">
-        🔇
-      </button>
+        <div class="header-controls">
+          <button class="language-switch" onclick="changeLanguage()" title="Switch Language / Сменить язык">
+            🌐
+          </button>
+          <button class="sound-toggle-btn" onclick="toggleSound()">
+            🔇
+          </button>
+        </div>
       </div>
       <div class="words" id="words"></div>
       <div id="result"></div>
