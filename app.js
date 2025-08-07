@@ -11,6 +11,7 @@ const CONFIG = {
 const TRANSLATIONS = {
   en: {
     'choose_language': 'Choose your language',
+    'choose_group': 'Choose sentence group',
     'make_sentence': 'Make the sentence',
     'switch_language': 'Switch Language',
     'next': 'Next',
@@ -21,10 +22,19 @@ const TRANSLATIONS = {
     'completed_sentences': 'You\'ve completed all {count} sentences.',
     'play_again': 'Play Again',
     'show_answer': 'Show Answer',
-    'reset': 'Reset'
+    'reset': 'Reset',
+    'random': '🎲 Random (All sentences)',
+    'short': 'Short sentences (up to 5 words)',
+    'medium': 'Medium sentences (6-10 words)',
+    'long': 'Long sentences (more than 10 words)',
+    'affirmative': 'Affirmative sentences',
+    'negative': 'Negative sentences',
+    'interrogative': 'Question sentences',
+    'back': '← Back'
   },
   ru: {
     'choose_language': 'Выберите язык',
+    'choose_group': 'Выберите группу предложений',
     'make_sentence': 'Составьте предложение',
     'switch_language': 'Сменить язык',
     'next': 'Следующее',
@@ -35,7 +45,15 @@ const TRANSLATIONS = {
     'completed_sentences': 'Вы завершили все {count} предложений.',
     'play_again': 'Играть снова',
     'show_answer': 'Показать ответ',
-    'reset': 'Сбросить'
+    'reset': 'Сбросить',
+    'random': '🎲 Случайно (Все предложения)',
+    'short': 'Короткие предложения (до 5 слов)',
+    'medium': 'Средние предложения (6-10 слов)',
+    'long': 'Длинные предложения (больше 10 слов)',
+    'affirmative': 'Утвердительные предложения',
+    'negative': 'Отрицательные предложения',
+    'interrogative': 'Вопросительные предложения',
+    'back': '← Назад'
   }
 };
 
@@ -43,8 +61,11 @@ const TRANSLATIONS = {
 class GameState {
   constructor() {
     this.sentences = [];
+    this.sentenceData = [];
+    this.groups = {};
     this.shuffledSentences = [];
     this.currentLanguage = 'en';
+    this.currentGroup = null;
     this.currentIndex = 0;
     this.userAnswer = [];
     this.shuffledWords = [];
@@ -62,10 +83,18 @@ class GameState {
     return this.shuffledSentences[this.currentIndex];
   }
 
-
-
   isLastSentence() {
     return this.currentIndex >= this.shuffledSentences.length - 1;
+  }
+
+  filterSentencesByGroup(group) {
+    if (group === 'random') {
+      return this.sentenceData;
+    }
+    
+    return this.sentenceData.filter(sentence => 
+      sentence.groups.includes(group)
+    );
   }
 }
 
@@ -73,11 +102,13 @@ class GameState {
 class UIComponents {
   constructor() {
     this.languageSelection = document.getElementById('language-selection');
+    this.groupSelection = document.getElementById('group-selection');
     this.gameContainer = document.getElementById('game-container');
     this.sentenceDisplay = document.getElementById('sentence');
     this.wordsContainer = document.getElementById('words');
     this.resultDisplay = document.getElementById('result');
     this.nextButton = document.getElementById('next-btn');
+    this.groupButtons = document.getElementById('group-buttons');
     
     this.createAssembledDisplay();
     this.bindEvents();
@@ -90,25 +121,52 @@ class UIComponents {
     this.wordsContainer.parentNode.insertBefore(this.assembledDisplay, this.wordsContainer);
   }
 
-
-
   bindEvents() {
     this.nextButton.addEventListener('click', () => gameController.nextSentence());
   }
 
   showLanguageSelection() {
     this.languageSelection.style.display = 'block';
+    this.groupSelection.style.display = 'none';
+    this.gameContainer.style.display = 'none';
+  }
+
+  showGroupSelection() {
+    this.languageSelection.style.display = 'none';
+    this.groupSelection.style.display = 'block';
     this.gameContainer.style.display = 'none';
   }
 
   showGame() {
     this.languageSelection.style.display = 'none';
+    this.groupSelection.style.display = 'none';
     this.gameContainer.style.display = 'block';
   }
 
-
-
-
+  renderGroupButtons(groups, language) {
+    this.groupButtons.innerHTML = '';
+    
+    // Add random option
+    const randomBtn = document.createElement('button');
+    randomBtn.className = 'group-btn';
+    randomBtn.onclick = () => gameController.selectGroup('random');
+    randomBtn.innerHTML = `
+      <div class="group-description">${TRANSLATIONS[language]['random']}</div>
+    `;
+    this.groupButtons.appendChild(randomBtn);
+    
+    // Add group buttons
+    Object.keys(groups).forEach(groupKey => {
+      const group = groups[groupKey];
+      const btn = document.createElement('button');
+      btn.className = 'group-btn';
+      btn.onclick = () => gameController.selectGroup(groupKey);
+      btn.innerHTML = `
+        <div class="group-description">${group.description}</div>
+      `;
+      this.groupButtons.appendChild(btn);
+    });
+  }
 
   renderAssembledSentence(words) {
     this.assembledDisplay.innerHTML = '';
@@ -265,12 +323,17 @@ class GameController {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       
-      this.state.sentences = await response.json();
-      this.state.shuffledSentences = this.shuffleArray([...this.state.sentences]);
+      const data = await response.json();
+      this.state.sentences = data.sentences.map(s => s.text);
+      this.state.sentenceData = data.sentences;
+      this.state.groups = data.groups;
       this.state.currentLanguage = language;
       this.state.reset();
       
-      this.renderCurrentSentence();
+      // Show group selection after loading data
+      this.ui.showGroupSelection();
+      this.ui.renderGroupButtons(data.groups, language);
+      this.ui.updateUIText();
     } catch (error) {
       console.error('Error loading sentences:', error);
       this.showError(`Failed to load ${language} sentences. Falling back to English.`);
@@ -283,14 +346,41 @@ class GameController {
 
   selectLanguage(language) {
     localStorage.setItem('userLanguage', language);
-    this.ui.showGame();
     this.loadSentences(language);
+  }
+
+  selectGroup(group) {
+    this.state.currentGroup = group;
+    const filteredSentences = this.state.filterSentencesByGroup(group);
+    
+    if (group === 'random') {
+      // Для случайного режима перемешиваем объекты предложений
+      const shuffledObjects = this.shuffleArray(filteredSentences);
+      this.state.shuffledSentences = shuffledObjects.map(s => s.text);
+      
+      // Отладочная информация
+      console.log('Random mode selected');
+      console.log('Total sentences:', filteredSentences.length);
+      console.log('First 5 shuffled sentences:', shuffledObjects.slice(0, 5).map(s => s.text));
+    } else {
+      // Для конкретных групп просто извлекаем тексты
+      this.state.shuffledSentences = filteredSentences.map(s => s.text);
+      
+      // Отладочная информация
+      console.log(`${group} mode selected`);
+      console.log('Total sentences:', filteredSentences.length);
+    }
+    
+    this.state.reset();
+    
+    this.ui.showGame();
+    this.renderCurrentSentence();
   }
 
   changeLanguage() {
     localStorage.removeItem('userLanguage');
-    this.ui.showLanguageSelection();
     this.state.reset();
+    this.ui.showLanguageSelection();
   }
 
   loadSavedLanguage() {
@@ -496,6 +586,10 @@ function resetCurrentSentence() {
   if (gameController) {
     gameController.resetCurrentSentence();
   }
+}
+
+function goBackToLanguageSelection() {
+  gameController.changeLanguage();
 }
 
 // Initialize sound button on page load

@@ -1,53 +1,605 @@
-[
-  "I always drink coffee before starting my work in the morning",
-  "She didn’t enjoy the movie because it was too long and boring",
-  "Are they going to the concert that was announced last week?",
-  "We have been waiting for the bus since eight o'clock this morning",
-  "He hasn’t replied to the email that you sent two days ago",
-  "Did you finish reading the book I gave you last weekend?",
-  "The train will arrive late because of the heavy rain outside",
-  "They were not aware of the schedule change until this morning",
-  "Is she planning to move to a new apartment next summer?",
-  "You should always check your work carefully before submitting it",
-  "I am not interested in watching that series anymore",
-  "Have you seen the museum exhibition everyone is talking about?",
-  "Our team didn’t manage to complete the task on time",
-  "Do you know someone who can help us with this problem?",
-  "She has been studying French for almost three years now",
-  "They are not ready to make a decision at this very moment",
-  "The children were playing outside until it started to rain",
-  "Can you explain what happened during the meeting yesterday?",
-  "We don’t usually eat dinner before seven in the evening",
-  "The project has already been approved by the management team",
-  "I couldn’t attend the lecture because I wasn't feeling well",
-  "Are you meeting Sarah at the library again this afternoon?",
-  "He doesn’t travel much because he prefers staying at home",
-  "They have cleaned the house from top to bottom all day",
-  "How long have you been waiting in line for the movie?",
-  "Do they always take the dog with them on vacation trips?",
-  "She wasn’t aware that we had changed the date of the event",
-  "We’ll be arriving at the airport around ten in the evening",
-  "Have you ever tried cooking that spicy dish from Thailand?",
-  "He had forgotten to turn off the lights before leaving home",
-  "She writes in her journal every night before going to bed",
-  "Are we still planning the office party for next Saturday?",
-  "The teacher didn’t assign any homework for the weekend",
-  "I had been working all night when the power went out",
-  "There hasn’t been any update about the parcel delivery",
-  "Is the printer working now or should I restart it again?",
-  "They always help each other when someone needs a favor",
-  "What time does the conference start tomorrow morning exactly?",
-  "She wasn’t listening while they explained the instructions",
-  "Have you ever visited a country where people drive on the left?",
-  "We’ll probably see them at the event next Friday evening",
-  "He didn’t mean to upset you with that particular comment",
-  "Do you always carry an umbrella when the sky looks grey?",
-  "They were watching a documentary about space exploration last night",
-  "I'm considering buying a new phone before the price increases",
-  "Who will be responsible for organizing the monthly team meeting?",
-  "I was surprised by how quickly he solved the entire puzzle",
-  "We are going to meet him at the coffee shop near campus",
-  "The package arrived earlier than we expected yesterday afternoon",
-  "Does she usually listen to music while doing her homework?",
-  "Why didn’t you tell me about your travel plans earlier?"
-]
+{
+  "groups": {
+    "short": {
+      "name": "Short sentences (up to 5 words)",
+      "description": "Sentences with 1 to 5 words"
+    },
+    "medium": {
+      "name": "Medium sentences (6-10 words)", 
+      "description": "Sentences with 6 to 10 words"
+    },
+    "long": {
+      "name": "Long sentences (more than 10 words)",
+      "description": "Sentences with more than 10 words"
+    },
+    "affirmative": {
+      "name": "Affirmative sentences",
+      "description": "Sentences in affirmative form"
+    },
+    "negative": {
+      "name": "Negative sentences",
+      "description": "Sentences in negative form"
+    },
+    "interrogative": {
+      "name": "Question sentences",
+      "description": "Sentences that ask questions"
+    }
+  },
+  "sentences": [
+    {
+      "id": 0,
+      "text": "I always drink coffee before starting my work in the morning",
+      "groups": ["long", "affirmative"]
+    },
+    {
+      "id": 1,
+      "text": "She didn't enjoy the movie because it was too long and boring",
+      "groups": ["long", "negative"]
+    },
+    {
+      "id": 2,
+      "text": "Are they going to the concert that was announced last week?",
+      "groups": ["long", "interrogative"]
+    },
+    {
+      "id": 3,
+      "text": "We have been waiting for the bus since eight o'clock this morning",
+      "groups": ["long", "affirmative"]
+    },
+    {
+      "id": 4,
+      "text": "He hasn't replied to the email that you sent two days ago",
+      "groups": ["long", "negative"]
+    },
+    {
+      "id": 5,
+      "text": "Did you finish reading the book I gave you last weekend?",
+      "groups": ["long", "interrogative"]
+    },
+    {
+      "id": 6,
+      "text": "The train will arrive late because of the heavy rain outside",
+      "groups": ["long", "affirmative"]
+    },
+    {
+      "id": 7,
+      "text": "They were not aware of the schedule change until this morning",
+      "groups": ["long", "negative"]
+    },
+    {
+      "id": 8,
+      "text": "Is she planning to move to a new apartment next summer?",
+      "groups": ["long", "interrogative"]
+    },
+    {
+      "id": 9,
+      "text": "You should always check your work carefully before submitting it",
+      "groups": ["long", "affirmative"]
+    },
+    {
+      "id": 10,
+      "text": "I am not interested in watching that series anymore",
+      "groups": ["medium", "negative"]
+    },
+    {
+      "id": 11,
+      "text": "Have you seen the museum exhibition everyone is talking about?",
+      "groups": ["long", "interrogative"]
+    },
+    {
+      "id": 12,
+      "text": "Our team didn't manage to complete the task on time",
+      "groups": ["medium", "negative"]
+    },
+    {
+      "id": 13,
+      "text": "Do you know someone who can help us with this problem?",
+      "groups": ["medium", "interrogative"]
+    },
+    {
+      "id": 14,
+      "text": "She has been studying French for almost three years now",
+      "groups": ["medium", "affirmative"]
+    },
+    {
+      "id": 15,
+      "text": "They are not ready to make a decision at this very moment",
+      "groups": ["medium", "negative"]
+    },
+    {
+      "id": 16,
+      "text": "The children were playing outside until it started to rain",
+      "groups": ["medium", "affirmative"]
+    },
+    {
+      "id": 17,
+      "text": "Can you explain what happened during the meeting yesterday?",
+      "groups": ["medium", "interrogative"]
+    },
+    {
+      "id": 18,
+      "text": "We don't usually eat dinner before seven in the evening",
+      "groups": ["medium", "negative"]
+    },
+    {
+      "id": 19,
+      "text": "The project has already been approved by the management team",
+      "groups": ["medium", "affirmative"]
+    },
+    {
+      "id": 20,
+      "text": "I couldn't attend the lecture because I wasn't feeling well",
+      "groups": ["medium", "negative"]
+    },
+    {
+      "id": 21,
+      "text": "Are you meeting Sarah at the library again this afternoon?",
+      "groups": ["medium", "interrogative"]
+    },
+    {
+      "id": 22,
+      "text": "He doesn't travel much because he prefers staying at home",
+      "groups": ["medium", "negative"]
+    },
+    {
+      "id": 23,
+      "text": "They have cleaned the house from top to bottom all day",
+      "groups": ["medium", "affirmative"]
+    },
+    {
+      "id": 24,
+      "text": "How long have you been waiting in line for the movie?",
+      "groups": ["medium", "interrogative"]
+    },
+    {
+      "id": 25,
+      "text": "Do they always take the dog with them on vacation trips?",
+      "groups": ["medium", "interrogative"]
+    },
+    {
+      "id": 26,
+      "text": "She wasn't aware that we had changed the date of the event",
+      "groups": ["medium", "negative"]
+    },
+    {
+      "id": 27,
+      "text": "We'll be arriving at the airport around ten in the evening",
+      "groups": ["medium", "affirmative"]
+    },
+    {
+      "id": 28,
+      "text": "Have you ever tried cooking that spicy dish from Thailand?",
+      "groups": ["medium", "interrogative"]
+    },
+    {
+      "id": 29,
+      "text": "He had forgotten to turn off the lights before leaving home",
+      "groups": ["medium", "affirmative"]
+    },
+    {
+      "id": 30,
+      "text": "She writes in her journal every night before going to bed",
+      "groups": ["medium", "affirmative"]
+    },
+    {
+      "id": 31,
+      "text": "Are we still planning the office party for next Saturday?",
+      "groups": ["medium", "interrogative"]
+    },
+    {
+      "id": 32,
+      "text": "The teacher didn't assign any homework for the weekend",
+      "groups": ["medium", "negative"]
+    },
+    {
+      "id": 33,
+      "text": "I had been working all night when the power went out",
+      "groups": ["medium", "affirmative"]
+    },
+    {
+      "id": 34,
+      "text": "There hasn't been any update about the parcel delivery",
+      "groups": ["medium", "negative"]
+    },
+    {
+      "id": 35,
+      "text": "Is the printer working now or should I restart it again?",
+      "groups": ["medium", "interrogative"]
+    },
+    {
+      "id": 36,
+      "text": "They always help each other when someone needs a favor",
+      "groups": ["medium", "affirmative"]
+    },
+    {
+      "id": 37,
+      "text": "What time does the conference start tomorrow morning exactly?",
+      "groups": ["long", "interrogative"]
+    },
+    {
+      "id": 38,
+      "text": "She wasn't listening while they explained the instructions",
+      "groups": ["medium", "negative"]
+    },
+    {
+      "id": 39,
+      "text": "Have you ever visited a country where people drive on the left?",
+      "groups": ["long", "interrogative"]
+    },
+    {
+      "id": 40,
+      "text": "We'll probably see them at the event next Friday evening",
+      "groups": ["medium", "affirmative"]
+    },
+    {
+      "id": 41,
+      "text": "He didn't mean to upset you with that particular comment",
+      "groups": ["medium", "negative"]
+    },
+    {
+      "id": 42,
+      "text": "Do you always carry an umbrella when the sky looks grey?",
+      "groups": ["medium", "interrogative"]
+    },
+    {
+      "id": 43,
+      "text": "They were watching a documentary about space exploration last night",
+      "groups": ["long", "affirmative"]
+    },
+    {
+      "id": 44,
+      "text": "I'm considering buying a new phone before the price increases",
+      "groups": ["medium", "affirmative"]
+    },
+    {
+      "id": 45,
+      "text": "Who will be responsible for organizing the monthly team meeting?",
+      "groups": ["long", "interrogative"]
+    },
+    {
+      "id": 46,
+      "text": "I was surprised by how quickly he solved the entire puzzle",
+      "groups": ["medium", "affirmative"]
+    },
+    {
+      "id": 47,
+      "text": "We are going to meet him at the coffee shop near campus",
+      "groups": ["medium", "affirmative"]
+    },
+    {
+      "id": 48,
+      "text": "The package arrived earlier than we expected yesterday afternoon",
+      "groups": ["long", "affirmative"]
+    },
+    {
+      "id": 49,
+      "text": "Does she usually listen to music while doing her homework?",
+      "groups": ["medium", "interrogative"]
+    },
+    {
+      "id": 50,
+      "text": "Why didn't you tell me about your travel plans earlier?",
+      "groups": ["medium", "interrogative"]
+    },
+    {
+      "id": 51,
+      "text": "I am happy",
+      "groups": ["short", "affirmative"]
+    },
+    {
+      "id": 52,
+      "text": "She works at the office",
+      "groups": ["short", "affirmative"]
+    },
+    {
+      "id": 53,
+      "text": "They love pizza",
+      "groups": ["short", "affirmative"]
+    },
+    {
+      "id": 54,
+      "text": "We visited the museum",
+      "groups": ["short", "affirmative"]
+    },
+    {
+      "id": 55,
+      "text": "He speaks French well",
+      "groups": ["short", "affirmative"]
+    },
+    {
+      "id": 56,
+      "text": "The weather is nice",
+      "groups": ["short", "affirmative"]
+    },
+    {
+      "id": 57,
+      "text": "She writes every day",
+      "groups": ["short", "affirmative"]
+    },
+    {
+      "id": 58,
+      "text": "They help each other",
+      "groups": ["short", "affirmative"]
+    },
+    {
+      "id": 59,
+      "text": "I like this book",
+      "groups": ["short", "affirmative"]
+    },
+    {
+      "id": 60,
+      "text": "She doesn't like pizza",
+      "groups": ["short", "negative"]
+    },
+    {
+      "id": 61,
+      "text": "They don't speak French",
+      "groups": ["short", "negative"]
+    },
+    {
+      "id": 62,
+      "text": "We aren't ready yet",
+      "groups": ["short", "negative"]
+    },
+    {
+      "id": 63,
+      "text": "He didn't call me",
+      "groups": ["short", "negative"]
+    },
+    {
+      "id": 64,
+      "text": "She won't come today",
+      "groups": ["short", "negative"]
+    },
+    {
+      "id": 65,
+      "text": "They haven't arrived",
+      "groups": ["short", "negative"]
+    },
+    {
+      "id": 66,
+      "text": "I can't see anything",
+      "groups": ["short", "negative"]
+    },
+    {
+      "id": 67,
+      "text": "She isn't working now",
+      "groups": ["short", "negative"]
+    },
+    {
+      "id": 68,
+      "text": "They don't know him",
+      "groups": ["short", "negative"]
+    },
+    {
+      "id": 69,
+      "text": "We didn't finish it",
+      "groups": ["short", "negative"]
+    },
+    {
+      "id": 70,
+      "text": "How much is the fish?",
+      "groups": ["short", "interrogative"]
+    },
+    {
+      "id": 71,
+      "text": "Are you coming today?",
+      "groups": ["short", "interrogative"]
+    },
+    {
+      "id": 72,
+      "text": "Do they like coffee?",
+      "groups": ["short", "interrogative"]
+    },
+    {
+      "id": 73,
+      "text": "Is she working now?",
+      "groups": ["short", "interrogative"]
+    },
+    {
+      "id": 74,
+      "text": "Have you seen it?",
+      "groups": ["short", "interrogative"]
+    },
+    {
+      "id": 75,
+      "text": "Can you help me?",
+      "groups": ["short", "interrogative"]
+    },
+    {
+      "id": 76,
+      "text": "Will they arrive soon?",
+      "groups": ["short", "interrogative"]
+    },
+    {
+      "id": 77,
+      "text": "Did she call you?",
+      "groups": ["short", "interrogative"]
+    },
+    {
+      "id": 78,
+      "text": "Should we wait here?",
+      "groups": ["short", "interrogative"]
+    },
+    {
+      "id": 79,
+      "text": "Who is that person?",
+      "groups": ["short", "interrogative"]
+    },
+    {
+      "id": 80,
+      "text": "The weather forecast predicted heavy rain for tomorrow afternoon",
+      "groups": ["long", "affirmative"]
+    },
+    {
+      "id": 81,
+      "text": "Did you finish your homework assignment that was due last night?",
+      "groups": ["long", "interrogative"]
+    },
+    {
+      "id": 82,
+      "text": "I haven't seen that movie yet",
+      "groups": ["medium", "negative"]
+    },
+    {
+      "id": 83,
+      "text": "The children were playing outside until it started to rain",
+      "groups": ["medium", "affirmative"]
+    },
+    {
+      "id": 84,
+      "text": "She wasn't aware that we had changed the date of the event",
+      "groups": ["medium", "negative"]
+    },
+    {
+      "id": 85,
+      "text": "We'll be arriving at the airport around ten in the evening",
+      "groups": ["medium", "affirmative"]
+    },
+    {
+      "id": 86,
+      "text": "Have you ever tried cooking that spicy dish from Thailand?",
+      "groups": ["medium", "interrogative"]
+    },
+    {
+      "id": 87,
+      "text": "He had forgotten to turn off the lights before leaving home",
+      "groups": ["medium", "affirmative"]
+    },
+    {
+      "id": 88,
+      "text": "She writes in her journal every night before going to bed",
+      "groups": ["medium", "affirmative"]
+    },
+    {
+      "id": 89,
+      "text": "Are we still planning the office party for next Saturday?",
+      "groups": ["medium", "interrogative"]
+    },
+    {
+      "id": 90,
+      "text": "The teacher didn't assign any homework for the weekend",
+      "groups": ["medium", "negative"]
+    },
+    {
+      "id": 91,
+      "text": "I had been working all night when the power went out",
+      "groups": ["medium", "affirmative"]
+    },
+    {
+      "id": 92,
+      "text": "There hasn't been any update about the parcel delivery",
+      "groups": ["medium", "negative"]
+    },
+    {
+      "id": 93,
+      "text": "Is the printer working now or should I restart it again?",
+      "groups": ["medium", "interrogative"]
+    },
+    {
+      "id": 94,
+      "text": "They always help each other when someone needs a favor",
+      "groups": ["medium", "affirmative"]
+    },
+    {
+      "id": 95,
+      "text": "What time does the conference start tomorrow morning exactly?",
+      "groups": ["long", "interrogative"]
+    },
+    {
+      "id": 96,
+      "text": "She wasn't listening while they explained the instructions",
+      "groups": ["medium", "negative"]
+    },
+    {
+      "id": 97,
+      "text": "Have you ever visited a country where people drive on the left?",
+      "groups": ["long", "interrogative"]
+    },
+    {
+      "id": 98,
+      "text": "We'll probably see them at the event next Friday evening",
+      "groups": ["medium", "affirmative"]
+    },
+    {
+      "id": 99,
+      "text": "He didn't mean to upset you with that particular comment",
+      "groups": ["medium", "negative"]
+    },
+    {
+      "id": 100,
+      "text": "Do you always carry an umbrella when the sky looks grey?",
+      "groups": ["medium", "interrogative"]
+    },
+    {
+      "id": 101,
+      "text": "They were watching a documentary about space exploration last night",
+      "groups": ["long", "affirmative"]
+    },
+    {
+      "id": 102,
+      "text": "I'm considering buying a new phone before the price increases",
+      "groups": ["medium", "affirmative"]
+    },
+    {
+      "id": 103,
+      "text": "Who will be responsible for organizing the monthly team meeting?",
+      "groups": ["long", "interrogative"]
+    },
+    {
+      "id": 104,
+      "text": "I was surprised by how quickly he solved the entire puzzle",
+      "groups": ["medium", "affirmative"]
+    },
+    {
+      "id": 105,
+      "text": "We are going to meet him at the coffee shop near campus",
+      "groups": ["medium", "affirmative"]
+    },
+    {
+      "id": 106,
+      "text": "The package arrived earlier than we expected yesterday afternoon",
+      "groups": ["long", "affirmative"]
+    },
+    {
+      "id": 107,
+      "text": "Does she usually listen to music while doing her homework?",
+      "groups": ["medium", "interrogative"]
+    },
+    {
+      "id": 108,
+      "text": "Why didn't you tell me about your travel plans earlier?",
+      "groups": ["medium", "interrogative"]
+    },
+    {
+      "id": 109,
+      "text": "The students didn't understand the complex mathematical concept",
+      "groups": ["long", "negative"]
+    },
+    {
+      "id": 110,
+      "text": "She hasn't received any response from the company yet",
+      "groups": ["long", "negative"]
+    },
+    {
+      "id": 111,
+      "text": "They weren't expecting such a large crowd at the event",
+      "groups": ["long", "negative"]
+    },
+    {
+      "id": 112,
+      "text": "I don't think we should proceed with this plan immediately",
+      "groups": ["long", "negative"]
+    },
+    {
+      "id": 113,
+      "text": "The team hasn't completed the project within the deadline",
+      "groups": ["long", "negative"]
+    },
+    {
+      "id": 114,
+      "text": "Could you please explain the procedure in more detail?",
+      "groups": ["long", "interrogative"]
+    }
+  ]
+} 
