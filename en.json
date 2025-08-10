@@ -258,7 +258,7 @@
     },
     {
       "id": 38,
-      "text": "She wasn't listening while they explained the instructions",
+      "text": "The student wasn't listening while the instructions were explained",
       "groups": ["medium", "negative", "at_school"]
     },
     {
@@ -548,7 +548,7 @@
     },
     {
       "id": 96,
-      "text": "She wasn't listening while they explained the instructions",
+      "text": "The student wasn't listening while the instructions were explained",
       "groups": ["medium", "negative"]
     },
     {
