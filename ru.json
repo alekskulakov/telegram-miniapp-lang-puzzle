@@ -23,6 +23,46 @@
     "interrogative": {
       "name": "Вопросительные предложения",
       "description": "Предложения, которые задают вопросы"
+    },
+    "v_aeroportu": {
+      "name": "В аэропорту",
+      "description": "Фразы и предложения, используемые в аэропорту"
+    },
+    "v_magazine": {
+      "name": "В продуктовом магазине",
+      "description": "Фразы и предложения, используемые в продуктовом магазине"
+    },
+    "v_bolnitse": {
+      "name": "В больнице",
+      "description": "Фразы и предложения, используемые в больнице или клинике"
+    },
+    "v_restorane": {
+      "name": "В ресторане",
+      "description": "Фразы и предложения, используемые в ресторане или кафе"
+    },
+    "v_otele": {
+      "name": "В отеле",
+      "description": "Фразы и предложения, используемые в отеле или гостинице"
+    },
+    "v_obshchestvennom_transporte": {
+      "name": "В общественном транспорте",
+      "description": "Фразы и предложения, используемые в автобусах, поездах или метро"
+    },
+    "v_shkole": {
+      "name": "В школе",
+      "description": "Фразы и предложения, используемые в школе или учебном заведении"
+    },
+    "na_rabote": {
+      "name": "На работе",
+      "description": "Фразы и предложения, используемые на рабочем месте или в офисе"
+    },
+    "v_banke": {
+      "name": "В банке",
+      "description": "Фразы и предложения, используемые в банке или финансовом учреждении"
+    },
+    "v_apteke": {
+      "name": "В аптеке",
+      "description": "Фразы и предложения, используемые в аптеке"
     }
   },
   "sentences": [
@@ -600,6 +640,406 @@
       "id": 114,
       "text": "Можешь ли ты объяснить процедуру более подробно?",
       "groups": ["long", "interrogative"]
+    },
+    {
+      "id": 115,
+      "text": "Где находится стойка регистрации на международные рейсы?",
+      "groups": ["medium", "interrogative", "v_aeroportu"]
+    },
+    {
+      "id": 116,
+      "text": "Мой рейс задержан из-за погодных условий.",
+      "groups": ["medium", "negative", "v_aeroportu"]
+    },
+    {
+      "id": 117,
+      "text": "Помогите найти мой выход?",
+      "groups": ["short", "interrogative", "v_aeroportu"]
+    },
+    {
+      "id": 118,
+      "text": "Мне нужно задекларировать эти предметы на таможне.",
+      "groups": ["medium", "affirmative", "v_aeroportu"]
+    },
+    {
+      "id": 119,
+      "text": "У вас есть жидкости в сумке?",
+      "groups": ["medium", "interrogative", "v_aeroportu"]
+    },
+    {
+      "id": 120,
+      "text": "Пройдите к контролю безопасности.",
+      "groups": ["short", "affirmative", "v_aeroportu"]
+    },
+    {
+      "id": 121,
+      "text": "Паспорт и посадочный талон, пожалуйста.",
+      "groups": ["short", "affirmative", "v_aeroportu"]
+    },
+    {
+      "id": 122,
+      "text": "Зона получения багажа находится слева.",
+      "groups": ["medium", "affirmative", "v_aeroportu"]
+    },
+    {
+      "id": 123,
+      "text": "Вы летите впервые?",
+      "groups": ["short", "interrogative", "v_aeroportu"]
+    },
+    {
+      "id": 124,
+      "text": "Я хотел бы пересесть на место у окна.",
+      "groups": ["medium", "affirmative", "v_aeroportu"]
+    },
+    {
+      "id": 125,
+      "text": "Где можно найти свежие овощи?",
+      "groups": ["medium", "interrogative", "v_magazine"]
+    },
+    {
+      "id": 126,
+      "text": "У вас есть безглютеновый хлеб?",
+      "groups": ["medium", "interrogative", "v_magazine"]
+    },
+    {
+      "id": 127,
+      "text": "Молоко находится в холодильном отделе.",
+      "groups": ["medium", "affirmative", "v_magazine"]
+    },
+    {
+      "id": 128,
+      "text": "Мне нужен пакет, пожалуйста.",
+      "groups": ["short", "affirmative", "v_magazine"]
+    },
+    {
+      "id": 129,
+      "text": "Сколько стоят эти яблоки?",
+      "groups": ["short", "interrogative", "v_magazine"]
+    },
+    {
+      "id": 130,
+      "text": "У нас закончились яйца сегодня.",
+      "groups": ["short", "negative", "v_magazine"]
+    },
+    {
+      "id": 131,
+      "text": "Можно оплатить картой?",
+      "groups": ["short", "interrogative", "v_magazine"]
+    },
+    {
+      "id": 132,
+      "text": "Касса находится вон там.",
+      "groups": ["short", "affirmative", "v_magazine"]
+    },
+    {
+      "id": 133,
+      "text": "Вам нужен чек?",
+      "groups": ["short", "interrogative", "v_magazine"]
+    },
+    {
+      "id": 134,
+      "text": "Я забыл принести список покупок.",
+      "groups": ["medium", "negative", "v_magazine"]
+    },
+    {
+      "id": 135,
+      "text": "Мне нужно срочно попасть к врачу.",
+      "groups": ["medium", "affirmative", "v_bolnitse"]
+    },
+    {
+      "id": 136,
+      "text": "Где находится приемное отделение?",
+      "groups": ["short", "interrogative", "v_bolnitse"]
+    },
+    {
+      "id": 137,
+      "text": "Заполните эту форму, пожалуйста.",
+      "groups": ["short", "affirmative", "v_bolnitse"]
+    },
+    {
+      "id": 138,
+      "text": "У вас есть медицинская страховка?",
+      "groups": ["short", "interrogative", "v_bolnitse"]
+    },
+    {
+      "id": 139,
+      "text": "Врач примет вас через несколько минут.",
+      "groups": ["medium", "affirmative", "v_bolnitse"]
+    },
+    {
+      "id": 140,
+      "text": "У меня болит грудь.",
+      "groups": ["short", "affirmative", "v_bolnitse"]
+    },
+    {
+      "id": 141,
+      "text": "Принимайте эти лекарства два раза в день.",
+      "groups": ["medium", "affirmative", "v_bolnitse"]
+    },
+    {
+      "id": 142,
+      "text": "Когда было ваше последнее обследование?",
+      "groups": ["short", "interrogative", "v_bolnitse"]
+    },
+    {
+      "id": 143,
+      "text": "Результаты анализов в норме.",
+      "groups": ["short", "affirmative", "v_bolnitse"]
+    },
+    {
+      "id": 144,
+      "text": "Я плохо себя чувствую сегодня.",
+      "groups": ["short", "negative", "v_bolnitse"]
+    },
+    {
+      "id": 145,
+      "text": "Можно посмотреть меню, пожалуйста?",
+      "groups": ["medium", "interrogative", "v_restorane"]
+    },
+    {
+      "id": 146,
+      "text": "Я хотел бы забронировать столик.",
+      "groups": ["medium", "affirmative", "v_restorane"]
+    },
+    {
+      "id": 147,
+      "text": "Что вы посоветуете сегодня?",
+      "groups": ["short", "interrogative", "v_restorane"]
+    },
+    {
+      "id": 148,
+      "text": "Суп очень вкусный.",
+      "groups": ["short", "affirmative", "v_restorane"]
+    },
+    {
+      "id": 149,
+      "text": "Мы не подаем завтрак после одиннадцати.",
+      "groups": ["medium", "negative", "v_restorane"]
+    },
+    {
+      "id": 150,
+      "text": "Можно счет, пожалуйста?",
+      "groups": ["short", "interrogative", "v_restorane"]
+    },
+    {
+      "id": 151,
+      "text": "Есть вегетарианские блюда?",
+      "groups": ["short", "interrogative", "v_restorane"]
+    },
+    {
+      "id": 152,
+      "text": "Столик у окна свободен.",
+      "groups": ["short", "affirmative", "v_restorane"]
+    },
+    {
+      "id": 153,
+      "text": "У меня аллергия на орехи.",
+      "groups": ["short", "affirmative", "v_restorane"]
+    },
+    {
+      "id": 154,
+      "text": "Будете что-нибудь пить?",
+      "groups": ["short", "interrogative", "v_restorane"]
+    },
+    {
+      "id": 155,
+      "text": "Я хотел бы зарегистрироваться, пожалуйста.",
+      "groups": ["medium", "affirmative", "v_otele"]
+    },
+    {
+      "id": 156,
+      "text": "У вас есть свободные номера?",
+      "groups": ["medium", "interrogative", "v_otele"]
+    },
+    {
+      "id": 157,
+      "text": "Во сколько выезд?",
+      "groups": ["short", "interrogative", "v_otele"]
+    },
+    {
+      "id": 158,
+      "text": "Можно заказать будильник?",
+      "groups": ["short", "interrogative", "v_otele"]
+    },
+    {
+      "id": 159,
+      "text": "Пароль от Wi-Fi написан здесь.",
+      "groups": ["medium", "affirmative", "v_otele"]
+    },
+    {
+      "id": 160,
+      "text": "Завтрак включен в стоимость?",
+      "groups": ["short", "interrogative", "v_otele"]
+    },
+    {
+      "id": 161,
+      "text": "Моя ключ-карта не работает.",
+      "groups": ["short", "negative", "v_otele"]
+    },
+    {
+      "id": 162,
+      "text": "Где находится лифт?",
+      "groups": ["short", "interrogative", "v_otele"]
+    },
+    {
+      "id": 163,
+      "text": "Мне нужны дополнительные полотенца.",
+      "groups": ["short", "affirmative", "v_otele"]
+    },
+    {
+      "id": 164,
+      "text": "Кондиционер работает неправильно.",
+      "groups": ["short", "negative", "v_otele"]
+    },
+    {
+      "id": 165,
+      "text": "С какой платформы отправляется поезд?",
+      "groups": ["medium", "interrogative", "v_obshchestvennom_transporte"]
+    },
+    {
+      "id": 166,
+      "text": "Извините, это место занято?",
+      "groups": ["short", "interrogative", "v_obshchestvennom_transporte"]
+    },
+    {
+      "id": 167,
+      "text": "Следующая остановка - центр города.",
+      "groups": ["medium", "affirmative", "v_obshchestvennom_transporte"]
+    },
+    {
+      "id": 168,
+      "text": "Пройдите в заднюю часть автобуса.",
+      "groups": ["medium", "affirmative", "v_obshchestvennom_transporte"]
+    },
+    {
+      "id": 169,
+      "text": "У вас есть мелочь для автомата?",
+      "groups": ["medium", "interrogative", "v_obshchestvennom_transporte"]
+    },
+    {
+      "id": 170,
+      "text": "Метро сегодня задерживается.",
+      "groups": ["short", "negative", "v_obshchestvennom_transporte"]
+    },
+    {
+      "id": 171,
+      "text": "Скажите когда будет Пятая улица?",
+      "groups": ["medium", "interrogative", "v_obshchestvennom_transporte"]
+    },
+    {
+      "id": 172,
+      "text": "Держитесь крепче, двери закрываются.",
+      "groups": ["medium", "affirmative", "v_obshchestvennom_transporte"]
+    },
+    {
+      "id": 173,
+      "text": "Я опоздал на пересадку.",
+      "groups": ["short", "negative", "v_obshchestvennom_transporte"]
+    },
+    {
+      "id": 174,
+      "text": "Сколько стоит проездной на день?",
+      "groups": ["medium", "interrogative", "v_obshchestvennom_transporte"]
+    },
+    {
+      "id": 175,
+      "text": "Я хотел бы открыть расчетный счет.",
+      "groups": ["medium", "affirmative", "v_banke"]
+    },
+    {
+      "id": 176,
+      "text": "Какой сегодня курс обмена?",
+      "groups": ["short", "interrogative", "v_banke"]
+    },
+    {
+      "id": 177,
+      "text": "Мне нужно снять деньги.",
+      "groups": ["short", "affirmative", "v_banke"]
+    },
+    {
+      "id": 178,
+      "text": "Можно внести этот чек?",
+      "groups": ["short", "interrogative", "v_banke"]
+    },
+    {
+      "id": 179,
+      "text": "Банкомат не работает.",
+      "groups": ["short", "negative", "v_banke"]
+    },
+    {
+      "id": 180,
+      "text": "Я забыл PIN-код.",
+      "groups": ["short", "negative", "v_banke"]
+    },
+    {
+      "id": 181,
+      "text": "Сколько времени занимает перевод?",
+      "groups": ["short", "interrogative", "v_banke"]
+    },
+    {
+      "id": 182,
+      "text": "Принесите два документа удостоверяющих личность.",
+      "groups": ["medium", "affirmative", "v_banke"]
+    },
+    {
+      "id": 183,
+      "text": "Какие у вас часы работы?",
+      "groups": ["short", "interrogative", "v_banke"]
+    },
+    {
+      "id": 184,
+      "text": "Мне нужно поговорить с менеджером.",
+      "groups": ["medium", "affirmative", "v_banke"]
+    },
+    {
+      "id": 185,
+      "text": "Мне нужно сделать лекарство по рецепту.",
+      "groups": ["medium", "affirmative", "v_apteke"]
+    },
+    {
+      "id": 186,
+      "text": "У вас есть это лекарство в наличии?",
+      "groups": ["medium", "interrogative", "v_apteke"]
+    },
+    {
+      "id": 187,
+      "text": "Как часто принимать это лекарство?",
+      "groups": ["medium", "interrogative", "v_apteke"]
+    },
+    {
+      "id": 188,
+      "text": "Есть побочные эффекты?",
+      "groups": ["short", "interrogative", "v_apteke"]
+    },
+    {
+      "id": 189,
+      "text": "Это лекарство требует рецепт.",
+      "groups": ["short", "negative", "v_apteke"]
+    },
+    {
+      "id": 190,
+      "text": "У вас есть витамины?",
+      "groups": ["short", "interrogative", "v_apteke"]
+    },
+    {
+      "id": 191,
+      "text": "Фармацевт объяснит дозировку.",
+      "groups": ["short", "affirmative", "v_apteke"]
+    },
+    {
+      "id": 192,
+      "text": "Можно взять дженерик?",
+      "groups": ["short", "interrogative", "v_apteke"]
+    },
+    {
+      "id": 193,
+      "text": "У меня аллергия на пенициллин.",
+      "groups": ["short", "affirmative", "v_apteke"]
+    },
+    {
+      "id": 194,
+      "text": "Когда будет готов мой рецепт?",
+      "groups": ["medium", "interrogative", "v_apteke"]
     }
   ]
 }

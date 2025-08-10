@@ -23,13 +23,53 @@
     "interrogative": {
       "name": "Question sentences",
       "description": "Sentences that ask questions"
+    },
+    "at_airport": {
+      "name": "At the airport",
+      "description": "Phrases and sentences used at the airport"
+    },
+    "at_grocery_store": {
+      "name": "At the grocery store",
+      "description": "Phrases and sentences used in a grocery store"
+    },
+    "at_hospital": {
+      "name": "At the hospital",
+      "description": "Phrases and sentences used in a hospital or clinic"
+    },
+    "at_restaurant": {
+      "name": "At the restaurant",
+      "description": "Phrases and sentences used in a restaurant or cafe"
+    },
+    "at_hotel": {
+      "name": "At the hotel",
+      "description": "Phrases and sentences used in a hotel or accommodation"
+    },
+    "on_public_transport": {
+      "name": "On public transport",
+      "description": "Phrases and sentences used on buses, trains, or subways"
+    },
+    "at_school": {
+      "name": "At school",
+      "description": "Phrases and sentences used in a school or educational setting"
+    },
+    "at_work": {
+      "name": "At work",
+      "description": "Phrases and sentences used in a workplace or office"
+    },
+    "at_bank": {
+      "name": "At the bank",
+      "description": "Phrases and sentences used in a bank or financial institution"
+    },
+    "at_pharmacy": {
+      "name": "At the pharmacy",
+      "description": "Phrases and sentences used in a pharmacy or drugstore"
     }
   },
   "sentences": [
     {
       "id": 0,
       "text": "I always drink coffee before starting my work in the morning",
-      "groups": ["long", "affirmative"]
+      "groups": ["long", "affirmative", "at_work"]
     },
     {
       "id": 1,
@@ -44,27 +84,27 @@
     {
       "id": 3,
       "text": "We have been waiting for the bus since eight o'clock this morning",
-      "groups": ["long", "affirmative"]
+      "groups": ["long", "affirmative", "on_public_transport"]
     },
     {
       "id": 4,
       "text": "He hasn't replied to the email that you sent two days ago",
-      "groups": ["long", "negative"]
+      "groups": ["long", "negative", "at_work"]
     },
     {
       "id": 5,
       "text": "Did you finish reading the book I gave you last weekend?",
-      "groups": ["long", "interrogative"]
+      "groups": ["long", "interrogative", "at_school"]
     },
     {
       "id": 6,
       "text": "The train will arrive late because of the heavy rain outside",
-      "groups": ["long", "affirmative"]
+      "groups": ["long", "affirmative", "on_public_transport"]
     },
     {
       "id": 7,
       "text": "They were not aware of the schedule change until this morning",
-      "groups": ["long", "negative"]
+      "groups": ["long", "negative", "at_work"]
     },
     {
       "id": 8,
@@ -74,7 +114,7 @@
     {
       "id": 9,
       "text": "You should always check your work carefully before submitting it",
-      "groups": ["long", "affirmative"]
+      "groups": ["long", "affirmative", "at_work"]
     },
     {
       "id": 10,
@@ -89,52 +129,52 @@
     {
       "id": 12,
       "text": "Our team didn't manage to complete the task on time",
-      "groups": ["medium", "negative"]
+      "groups": ["medium", "negative", "at_work"]
     },
     {
       "id": 13,
       "text": "Do you know someone who can help us with this problem?",
-      "groups": ["medium", "interrogative"]
+      "groups": ["medium", "interrogative", "at_work"]
     },
     {
       "id": 14,
       "text": "She has been studying French for almost three years now",
-      "groups": ["medium", "affirmative"]
+      "groups": ["medium", "affirmative", "at_school"]
     },
     {
       "id": 15,
       "text": "They are not ready to make a decision at this very moment",
-      "groups": ["medium", "negative"]
+      "groups": ["medium", "negative", "at_work"]
     },
     {
       "id": 16,
       "text": "The children were playing outside until it started to rain",
-      "groups": ["medium", "affirmative"]
+      "groups": ["medium", "affirmative", "at_school"]
     },
     {
       "id": 17,
       "text": "Can you explain what happened during the meeting yesterday?",
-      "groups": ["medium", "interrogative"]
+      "groups": ["medium", "interrogative", "at_work"]
     },
     {
       "id": 18,
       "text": "We don't usually eat dinner before seven in the evening",
-      "groups": ["medium", "negative"]
+      "groups": ["medium", "negative", "at_restaurant"]
     },
     {
       "id": 19,
       "text": "The project has already been approved by the management team",
-      "groups": ["medium", "affirmative"]
+      "groups": ["medium", "affirmative", "at_work"]
     },
     {
       "id": 20,
       "text": "I couldn't attend the lecture because I wasn't feeling well",
-      "groups": ["medium", "negative"]
+      "groups": ["medium", "negative", "at_school", "at_hospital"]
     },
     {
       "id": 21,
       "text": "Are you meeting Sarah at the library again this afternoon?",
-      "groups": ["medium", "interrogative"]
+      "groups": ["medium", "interrogative", "at_school"]
     },
     {
       "id": 22,
@@ -149,7 +189,7 @@
     {
       "id": 24,
       "text": "How long have you been waiting in line for the movie?",
-      "groups": ["medium", "interrogative"]
+      "groups": ["medium", "interrogative", "on_public_transport"]
     },
     {
       "id": 25,
@@ -159,17 +199,17 @@
     {
       "id": 26,
       "text": "She wasn't aware that we had changed the date of the event",
-      "groups": ["medium", "negative"]
+      "groups": ["medium", "negative", "at_work"]
     },
     {
       "id": 27,
       "text": "We'll be arriving at the airport around ten in the evening",
-      "groups": ["medium", "affirmative"]
+      "groups": ["medium", "affirmative", "at_airport"]
     },
     {
       "id": 28,
       "text": "Have you ever tried cooking that spicy dish from Thailand?",
-      "groups": ["medium", "interrogative"]
+      "groups": ["medium", "interrogative", "at_restaurant"]
     },
     {
       "id": 29,
@@ -184,27 +224,27 @@
     {
       "id": 31,
       "text": "Are we still planning the office party for next Saturday?",
-      "groups": ["medium", "interrogative"]
+      "groups": ["medium", "interrogative", "at_work"]
     },
     {
       "id": 32,
       "text": "The teacher didn't assign any homework for the weekend",
-      "groups": ["medium", "negative"]
+      "groups": ["medium", "negative", "at_school"]
     },
     {
       "id": 33,
       "text": "I had been working all night when the power went out",
-      "groups": ["medium", "affirmative"]
+      "groups": ["medium", "affirmative", "at_work"]
     },
     {
       "id": 34,
       "text": "There hasn't been any update about the parcel delivery",
-      "groups": ["medium", "negative"]
+      "groups": ["medium", "negative", "at_work"]
     },
     {
       "id": 35,
       "text": "Is the printer working now or should I restart it again?",
-      "groups": ["medium", "interrogative"]
+      "groups": ["medium", "interrogative", "at_work"]
     },
     {
       "id": 36,
@@ -214,12 +254,12 @@
     {
       "id": 37,
       "text": "What time does the conference start tomorrow morning exactly?",
-      "groups": ["long", "interrogative"]
+      "groups": ["long", "interrogative", "at_work"]
     },
     {
       "id": 38,
       "text": "She wasn't listening while they explained the instructions",
-      "groups": ["medium", "negative"]
+      "groups": ["medium", "negative", "at_school"]
     },
     {
       "id": 39,
@@ -229,32 +269,32 @@
     {
       "id": 40,
       "text": "We'll probably see them at the event next Friday evening",
-      "groups": ["medium", "affirmative"]
+      "groups": ["medium", "affirmative", "at_work"]
     },
     {
       "id": 41,
       "text": "He didn't mean to upset you with that particular comment",
-      "groups": ["medium", "negative"]
+      "groups": ["medium", "negative", "at_work"]
     },
     {
       "id": 42,
       "text": "Do you always carry an umbrella when the sky looks grey?",
-      "groups": ["medium", "interrogative"]
+      "groups": ["medium", "interrogative", "on_public_transport"]
     },
     {
       "id": 43,
       "text": "They were watching a documentary about space exploration last night",
-      "groups": ["long", "affirmative"]
+      "groups": ["long", "affirmative", "at_school"]
     },
     {
       "id": 44,
       "text": "I'm considering buying a new phone before the price increases",
-      "groups": ["medium", "affirmative"]
+      "groups": ["medium", "affirmative", "at_grocery_store"]
     },
     {
       "id": 45,
       "text": "Who will be responsible for organizing the monthly team meeting?",
-      "groups": ["long", "interrogative"]
+      "groups": ["long", "interrogative", "at_work"]
     },
     {
       "id": 46,
@@ -264,7 +304,7 @@
     {
       "id": 47,
       "text": "We are going to meet him at the coffee shop near campus",
-      "groups": ["medium", "affirmative"]
+      "groups": ["medium", "affirmative", "at_restaurant"]
     },
     {
       "id": 48,
@@ -274,12 +314,12 @@
     {
       "id": 49,
       "text": "Does she usually listen to music while doing her homework?",
-      "groups": ["medium", "interrogative"]
+      "groups": ["medium", "interrogative", "at_school"]
     },
     {
       "id": 50,
       "text": "Why didn't you tell me about your travel plans earlier?",
-      "groups": ["medium", "interrogative"]
+      "groups": ["medium", "interrogative", "at_airport"]
     },
     {
       "id": 51,
@@ -519,32 +559,32 @@
     {
       "id": 98,
       "text": "We'll probably see them at the event next Friday evening",
-      "groups": ["medium", "affirmative"]
+      "groups": ["medium", "affirmative", "at_work"]
     },
     {
       "id": 99,
       "text": "He didn't mean to upset you with that particular comment",
-      "groups": ["medium", "negative"]
+      "groups": ["medium", "negative", "at_work"]
     },
     {
       "id": 100,
       "text": "Do you always carry an umbrella when the sky looks grey?",
-      "groups": ["medium", "interrogative"]
+      "groups": ["medium", "interrogative", "on_public_transport"]
     },
     {
       "id": 101,
       "text": "They were watching a documentary about space exploration last night",
-      "groups": ["long", "affirmative"]
+      "groups": ["long", "affirmative", "at_school"]
     },
     {
       "id": 102,
       "text": "I'm considering buying a new phone before the price increases",
-      "groups": ["medium", "affirmative"]
+      "groups": ["medium", "affirmative", "at_grocery_store"]
     },
     {
       "id": 103,
       "text": "Who will be responsible for organizing the monthly team meeting?",
-      "groups": ["long", "interrogative"]
+      "groups": ["long", "interrogative", "at_work"]
     },
     {
       "id": 104,
@@ -600,6 +640,406 @@
       "id": 114,
       "text": "Could you please explain the procedure in more detail?",
       "groups": ["long", "interrogative"]
+    },
+    {
+      "id": 115,
+      "text": "Where is the check-in counter for international flights?",
+      "groups": ["medium", "interrogative", "at_airport"]
+    },
+    {
+      "id": 116,
+      "text": "My flight has been delayed due to weather conditions.",
+      "groups": ["medium", "negative", "at_airport"]
+    },
+    {
+      "id": 117,
+      "text": "Can you help me find my gate?",
+      "groups": ["short", "interrogative", "at_airport"]
+    },
+    {
+      "id": 118,
+      "text": "I need to declare these items at customs.",
+      "groups": ["medium", "affirmative", "at_airport"]
+    },
+    {
+      "id": 119,
+      "text": "Do you have any liquids in your bag?",
+      "groups": ["medium", "interrogative", "at_airport"]
+    },
+    {
+      "id": 120,
+      "text": "Please proceed to security check.",
+      "groups": ["short", "affirmative", "at_airport"]
+    },
+    {
+      "id": 121,
+      "text": "Your passport and boarding pass, please.",
+      "groups": ["short", "affirmative", "at_airport"]
+    },
+    {
+      "id": 122,
+      "text": "The baggage claim area is on the left.",
+      "groups": ["medium", "affirmative", "at_airport"]
+    },
+    {
+      "id": 123,
+      "text": "Is this your first time flying?",
+      "groups": ["short", "interrogative", "at_airport"]
+    },
+    {
+      "id": 124,
+      "text": "I would like to change my seat to a window seat.",
+      "groups": ["long", "affirmative", "at_airport"]
+    },
+    {
+      "id": 125,
+      "text": "Where can I find fresh vegetables?",
+      "groups": ["medium", "interrogative", "at_grocery_store"]
+    },
+    {
+      "id": 126,
+      "text": "Do you have any gluten-free bread?",
+      "groups": ["medium", "interrogative", "at_grocery_store"]
+    },
+    {
+      "id": 127,
+      "text": "The milk is in the refrigerated section.",
+      "groups": ["medium", "affirmative", "at_grocery_store"]
+    },
+    {
+      "id": 128,
+      "text": "I would like a bag, please.",
+      "groups": ["short", "affirmative", "at_grocery_store"]
+    },
+    {
+      "id": 129,
+      "text": "How much do these apples cost?",
+      "groups": ["medium", "interrogative", "at_grocery_store"]
+    },
+    {
+      "id": 130,
+      "text": "We are out of eggs today.",
+      "groups": ["short", "negative", "at_grocery_store"]
+    },
+    {
+      "id": 131,
+      "text": "Can I pay by card?",
+      "groups": ["short", "interrogative", "at_grocery_store"]
+    },
+    {
+      "id": 132,
+      "text": "The checkout is over there.",
+      "groups": ["short", "affirmative", "at_grocery_store"]
+    },
+    {
+      "id": 133,
+      "text": "Do you need a receipt?",
+      "groups": ["short", "interrogative", "at_grocery_store"]
+    },
+    {
+      "id": 134,
+      "text": "I forgot to bring my shopping list.",
+      "groups": ["medium", "negative", "at_grocery_store"]
+    },
+    {
+      "id": 135,
+      "text": "I need to see a doctor urgently.",
+      "groups": ["medium", "affirmative", "at_hospital"]
+    },
+    {
+      "id": 136,
+      "text": "Where is the emergency room?",
+      "groups": ["short", "interrogative", "at_hospital"]
+    },
+    {
+      "id": 137,
+      "text": "Please fill out this form.",
+      "groups": ["short", "affirmative", "at_hospital"]
+    },
+    {
+      "id": 138,
+      "text": "Do you have health insurance?",
+      "groups": ["short", "interrogative", "at_hospital"]
+    },
+    {
+      "id": 139,
+      "text": "The doctor will see you shortly.",
+      "groups": ["medium", "affirmative", "at_hospital"]
+    },
+    {
+      "id": 140,
+      "text": "I'm experiencing chest pain.",
+      "groups": ["short", "affirmative", "at_hospital"]
+    },
+    {
+      "id": 141,
+      "text": "You need to take these medications twice daily.",
+      "groups": ["medium", "affirmative", "at_hospital"]
+    },
+    {
+      "id": 142,
+      "text": "When was your last checkup?",
+      "groups": ["short", "interrogative", "at_hospital"]
+    },
+    {
+      "id": 143,
+      "text": "The test results are normal.",
+      "groups": ["short", "affirmative", "at_hospital"]
+    },
+    {
+      "id": 144,
+      "text": "I don't feel well today.",
+      "groups": ["short", "negative", "at_hospital"]
+    },
+    {
+      "id": 145,
+      "text": "Could I see the menu, please?",
+      "groups": ["medium", "interrogative", "at_restaurant"]
+    },
+    {
+      "id": 146,
+      "text": "I would like to make a reservation.",
+      "groups": ["medium", "affirmative", "at_restaurant"]
+    },
+    {
+      "id": 147,
+      "text": "What do you recommend today?",
+      "groups": ["short", "interrogative", "at_restaurant"]
+    },
+    {
+      "id": 148,
+      "text": "The soup is delicious.",
+      "groups": ["short", "affirmative", "at_restaurant"]
+    },
+    {
+      "id": 149,
+      "text": "We don't serve breakfast after eleven.",
+      "groups": ["medium", "negative", "at_restaurant"]
+    },
+    {
+      "id": 150,
+      "text": "Can I have the bill?",
+      "groups": ["short", "interrogative", "at_restaurant"]
+    },
+    {
+      "id": 151,
+      "text": "Is there a vegetarian option?",
+      "groups": ["short", "interrogative", "at_restaurant"]
+    },
+    {
+      "id": 152,
+      "text": "The table by the window is available.",
+      "groups": ["medium", "affirmative", "at_restaurant"]
+    },
+    {
+      "id": 153,
+      "text": "I'm allergic to nuts.",
+      "groups": ["short", "affirmative", "at_restaurant"]
+    },
+    {
+      "id": 154,
+      "text": "Would you like something to drink?",
+      "groups": ["medium", "interrogative", "at_restaurant"]
+    },
+    {
+      "id": 155,
+      "text": "I'd like to check in, please.",
+      "groups": ["medium", "affirmative", "at_hotel"]
+    },
+    {
+      "id": 156,
+      "text": "Do you have any rooms available?",
+      "groups": ["medium", "interrogative", "at_hotel"]
+    },
+    {
+      "id": 157,
+      "text": "What time is checkout?",
+      "groups": ["short", "interrogative", "at_hotel"]
+    },
+    {
+      "id": 158,
+      "text": "Could I have a wake-up call?",
+      "groups": ["medium", "interrogative", "at_hotel"]
+    },
+    {
+      "id": 159,
+      "text": "The Wi-Fi password is written here.",
+      "groups": ["medium", "affirmative", "at_hotel"]
+    },
+    {
+      "id": 160,
+      "text": "Is breakfast included in the price?",
+      "groups": ["medium", "interrogative", "at_hotel"]
+    },
+    {
+      "id": 161,
+      "text": "My room key doesn't work.",
+      "groups": ["short", "negative", "at_hotel"]
+    },
+    {
+      "id": 162,
+      "text": "Where is the elevator?",
+      "groups": ["short", "interrogative", "at_hotel"]
+    },
+    {
+      "id": 163,
+      "text": "I need extra towels.",
+      "groups": ["short", "affirmative", "at_hotel"]
+    },
+    {
+      "id": 164,
+      "text": "The air conditioning isn't working properly.",
+      "groups": ["medium", "negative", "at_hotel"]
+    },
+    {
+      "id": 165,
+      "text": "Which platform does the train leave from?",
+      "groups": ["medium", "interrogative", "on_public_transport"]
+    },
+    {
+      "id": 166,
+      "text": "Excuse me, is this seat taken?",
+      "groups": ["medium", "interrogative", "on_public_transport"]
+    },
+    {
+      "id": 167,
+      "text": "The next stop is downtown.",
+      "groups": ["short", "affirmative", "on_public_transport"]
+    },
+    {
+      "id": 168,
+      "text": "Please move to the back of the bus.",
+      "groups": ["medium", "affirmative", "on_public_transport"]
+    },
+    {
+      "id": 169,
+      "text": "Do you have change for the ticket machine?",
+      "groups": ["medium", "interrogative", "on_public_transport"]
+    },
+    {
+      "id": 170,
+      "text": "The subway is delayed today.",
+      "groups": ["short", "negative", "on_public_transport"]
+    },
+    {
+      "id": 171,
+      "text": "Can you tell me when we reach Fifth Street?",
+      "groups": ["medium", "interrogative", "on_public_transport"]
+    },
+    {
+      "id": 172,
+      "text": "Please hold on, the doors are closing.",
+      "groups": ["medium", "affirmative", "on_public_transport"]
+    },
+    {
+      "id": 173,
+      "text": "I missed my connection.",
+      "groups": ["short", "negative", "on_public_transport"]
+    },
+    {
+      "id": 174,
+      "text": "How much is a day pass?",
+      "groups": ["short", "interrogative", "on_public_transport"]
+    },
+    {
+      "id": 175,
+      "text": "I'd like to open a checking account.",
+      "groups": ["medium", "affirmative", "at_bank"]
+    },
+    {
+      "id": 176,
+      "text": "What is the current exchange rate?",
+      "groups": ["medium", "interrogative", "at_bank"]
+    },
+    {
+      "id": 177,
+      "text": "I need to make a withdrawal.",
+      "groups": ["medium", "affirmative", "at_bank"]
+    },
+    {
+      "id": 178,
+      "text": "Can I deposit this check?",
+      "groups": ["short", "interrogative", "at_bank"]
+    },
+    {
+      "id": 179,
+      "text": "The ATM is out of order.",
+      "groups": ["short", "negative", "at_bank"]
+    },
+    {
+      "id": 180,
+      "text": "I forgot my PIN number.",
+      "groups": ["short", "negative", "at_bank"]
+    },
+    {
+      "id": 181,
+      "text": "How long does a transfer take?",
+      "groups": ["medium", "interrogative", "at_bank"]
+    },
+    {
+      "id": 182,
+      "text": "Please bring two forms of identification.",
+      "groups": ["medium", "affirmative", "at_bank"]
+    },
+    {
+      "id": 183,
+      "text": "What are your hours today?",
+      "groups": ["short", "interrogative", "at_bank"]
+    },
+    {
+      "id": 184,
+      "text": "I need to speak with a manager.",
+      "groups": ["medium", "affirmative", "at_bank"]
+    },
+    {
+      "id": 185,
+      "text": "I need to fill this prescription.",
+      "groups": ["medium", "affirmative", "at_pharmacy"]
+    },
+    {
+      "id": 186,
+      "text": "Do you have this medication in stock?",
+      "groups": ["medium", "interrogative", "at_pharmacy"]
+    },
+    {
+      "id": 187,
+      "text": "How often should I take this?",
+      "groups": ["medium", "interrogative", "at_pharmacy"]
+    },
+    {
+      "id": 188,
+      "text": "Are there any side effects?",
+      "groups": ["short", "interrogative", "at_pharmacy"]
+    },
+    {
+      "id": 189,
+      "text": "This medicine requires a prescription.",
+      "groups": ["short", "negative", "at_pharmacy"]
+    },
+    {
+      "id": 190,
+      "text": "Do you sell vitamins?",
+      "groups": ["short", "interrogative", "at_pharmacy"]
+    },
+    {
+      "id": 191,
+      "text": "The pharmacist will explain the dosage.",
+      "groups": ["medium", "affirmative", "at_pharmacy"]
+    },
+    {
+      "id": 192,
+      "text": "Can I get a generic version?",
+      "groups": ["medium", "interrogative", "at_pharmacy"]
+    },
+    {
+      "id": 193,
+      "text": "I'm allergic to penicillin.",
+      "groups": ["short", "affirmative", "at_pharmacy"]
+    },
+    {
+      "id": 194,
+      "text": "When will my prescription be ready?",
+      "groups": ["medium", "interrogative", "at_pharmacy"]
     }
   ]
-} 
+}
