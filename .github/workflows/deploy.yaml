@@ -1,0 +1,58 @@
+name: Deploy src to Yandex Object Storage via AWS CLI
+
+on:
+  push:
+    branches:
+      - push-to-blob
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.YC_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.YC_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: ru-central1
+      S3_ENDPOINT: https://storage.yandexcloud.net
+      BUCKET: ${{ secrets.YC_BUCKET }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate source directory
+        run: |
+          if [ ! -d "src" ]; then
+            echo "Directory 'src' not found at repo root."
+            exit 1
+          fi
+          echo "Found 'src' directory: "
+          ls -la src
+
+      - name: Install AWS CLI v2
+        run: |
+          curl -sSL "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          unzip -q awscliv2.zip
+          sudo ./aws/install
+          aws --version
+
+      - name: Check bucket access
+        run: |
+          aws s3 ls "s3://${BUCKET}" --endpoint-url "${S3_ENDPOINT}"
+
+      - name: Cleanup bucket (always)
+        run: |
+          # Полная очистка корня бакета
+          aws s3 rm "s3://${BUCKET}" --recursive --endpoint-url "${S3_ENDPOINT}"
+
+      - name: Upload src to bucket root
+        run: |
+          aws s3 sync "./src" "s3://${BUCKET}" \
+            --endpoint-url "${S3_ENDPOINT}" \
+            --acl public-read \
+            --no-progress \
+            --exclude ".DS_Store"
+
+      - name: List bucket (post-deploy)
+        run: |
+          aws s3 ls "s3://${BUCKET}" --recursive --human-readable --summarize --endpoint-url "${S3_ENDPOINT}"
