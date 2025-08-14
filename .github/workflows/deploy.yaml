@@ -3,7 +3,7 @@ name: Deploy src to Yandex Object Storage via AWS CLI
 on:
   push:
     branches:
-      - push-to-blob  # укажи свою ветку
+      - main
 
 jobs:
   deploy:
