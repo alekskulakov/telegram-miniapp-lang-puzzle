@@ -1,0 +1,54 @@
+name: Deploy src to Yandex Object Storage via AWS CLI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.YC_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.YC_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: ru-central1
+      S3_ENDPOINT: https://storage.yandexcloud.net
+      BUCKET: ${{ secrets.YC_BUCKET }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate src directory
+        run: |
+          if [ ! -d "src" ]; then
+            echo "❌ Directory 'src' not found at repo root!"
+            exit 1
+          fi
+          echo "✅ Found 'src' directory:"
+          ls -la src
+
+      - name: Check bucket access
+        run: |
+          aws s3 ls "s3://${BUCKET}" --endpoint-url "${S3_ENDPOINT}"
+
+      - name: Cleanup bucket (always)
+        run: |
+          echo "🧹 Clearing bucket before upload..."
+          aws s3 rm "s3://${BUCKET}" --recursive --endpoint-url "${S3_ENDPOINT}"
+
+      - name: Upload src to bucket root
+        run: |
+          echo "📤 Uploading src/ to bucket root..."
+          aws s3 sync "./src" "s3://${BUCKET}" \
+            --endpoint-url "${S3_ENDPOINT}" \
+            --acl public-read \
+            --delete \
+            --no-progress \
+            --exclude ".DS_Store"
+
+      - name: List bucket contents
+        run: |
+          echo "📂 Current bucket contents:"
+          aws s3 ls "s3://${BUCKET}" --recursive --human-readable --summarize --endpoint-url "${S3_ENDPOINT}"

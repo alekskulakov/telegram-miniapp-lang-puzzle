@@ -318,7 +318,7 @@ class GameController {
 
   async loadSentences(language) {
     try {
-      const response = await fetch(`${language}.json`);
+      const response = await fetch(`../resources/${language}.json`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
